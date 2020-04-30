@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -19,13 +20,15 @@ const store = createStore(toDoApp, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 
-//make app use loadTodoList action creator to dispatch an action
+//make app use loadTodoList action creator to dispatch an action right after loading on browser
 store.dispatch(loadToDoList());
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
