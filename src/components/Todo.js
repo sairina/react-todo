@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+//receives description of todo item and renders item
 const ToDo = ({ title }) => <ListGroup.Item>{title}</ListGroup.Item>;
 
 ToDo.propTypes = {
