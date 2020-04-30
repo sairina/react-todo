@@ -4,9 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import toDoApp from './reducers';
+
+//create single source of truth object about state of the app (store)
+const store = createStore(toDoApp);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
